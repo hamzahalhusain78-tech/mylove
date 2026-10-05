@@ -1,0 +1,512 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>For My Special One 💖</title>
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Poppins & Playfair Display -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <!-- FontAwesome for icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <!-- QRCode.js library for QR generation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(
+          135deg,
+          #fff0f3 0%,
+          #ffccd5 50%,
+          #ffb3c1 100%
+        );
+        min-height: 100vh;
+        overflow-x: hidden;
+        color: #590d22;
+      }
+      .font-playfair {
+        font-family: "Playfair Display", serif;
+      }
+      /* Floating hearts & petals animation */
+      @keyframes float {
+        0% {
+          transform: translateY(105vh) rotate(0deg);
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(-10vh) rotate(360deg);
+          opacity: 0;
+        }
+      }
+      .petal {
+        position: fixed;
+        top: 0;
+        z-index: 1;
+        user-select: none;
+        pointer-events: none;
+        animation: float linear infinite;
+      }
+      /* Polaroid card hover effects */
+      .polaroid {
+        transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        background: white;
+        box-shadow: 0 10px 25px rgba(216, 112, 147, 0.15);
+      }
+      .polaroid:hover {
+        transform: translateY(-8px) rotate(0deg) scale(1.02);
+        box-shadow: 0 20px 35px rgba(216, 112, 147, 0.3);
+        z-index: 10;
+      }
+      /* Glassmorphism card */
+      .glass-card {
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.6);
+      }
+    </style>
+  </head>
+  <body class="relative selection:bg-pink-300 selection:text-pink-900">
+    <!-- Floating Hearts Container -->
+    <div id="hearts-container"></div>
+
+    <!-- Header / Hero Section -->
+    <header
+      class="relative z-10 flex flex-col items-center justify-center min-h-screen text-center px-4 py-12"
+    >
+      <div
+        class="glass-card p-8 md:p-12 rounded-3xl shadow-2xl max-w-xl w-full transform transition-all duration-700 hover:scale-[1.01]"
+      >
+        <div
+          class="inline-block p-3 mb-4 rounded-full bg-pink-100 text-pink-600 animate-pulse"
+        >
+          <i class="fa-solid fa-heart text-3xl"></i>
+        </div>
+        <span
+          class="text-xs uppercase tracking-widest text-pink-500 font-semibold mb-2 block"
+          >Special Dedicated To You</span
+        >
+        <h1
+          class="font-playfair text-4xl md:text-5xl font-bold text-pink-900 mb-4"
+        >
+          To Nayla annisa siddik Tersayang ❤️
+        </h1>
+        <p
+          id="typed-text"
+          class="text-pink-700 text-sm md:text-base mb-8 font-light min-h-[50px]"
+        >
+          Setiap detik bersamamu adalah keindahan yang tak tergantikan...
+        </p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a
+            href="#galeri"
+            class="px-6 py-3 bg-gradient-to-r from-pink-500 to-rose-400 text-white rounded-full font-medium shadow-lg hover:shadow-pink-400/50 hover:scale-105 transition duration-300"
+          >
+            <i class="fa-solid fa-images mr-2"></i> Lihat Kenangan Kita
+          </a>
+          <a
+            href="#barcode-section"
+            class="px-6 py-3 bg-white text-pink-600 border border-pink-300 rounded-full font-medium shadow-md hover:bg-pink-50 hover:scale-105 transition duration-300"
+          >
+            <i class="fa-solid fa-qrcode mr-2"></i> Buat Barcode Web Ini
+          </a>
+        </div>
+      </div>
+      <div class="absolute bottom-6 animate-bounce text-pink-500">
+        <a href="#galeri"><i class="fa-solid fa-chevron-down text-2xl"></i></a>
+      </div>
+    </header>
+
+    <!-- Gallery Section (Polaroid Style) -->
+    <section id="galeri" class="relative z-10 py-16 px-4 max-w-6xl mx-auto">
+      <div class="text-center mb-12">
+        <h2
+          class="font-playfair text-3xl md:text-4xl font-bold text-pink-900 mb-2"
+        >
+          Galeri Kenangan Indah
+        </h2>
+        <p class="text-pink-700 text-sm md:text-base">
+          Momen-momen manis yang selalu tersimpan rapi di dalam hati.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+        <!-- Polaroid 1 -->
+        <div class="polaroid p-4 pb-6 rounded-lg transform -rotate-1">
+          <div class="overflow-hidden rounded mb-3 aspect-[4/5] bg-pink-100">
+            <img
+              src="nn.jpeg"
+              alt="Memory 1"
+              class="w-full h-full object-cover hover:scale-110 transition duration-500"
+              onerror="
+                this.src =
+                  'https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=600&auto=format&fit=crop&q=60'
+              "
+            />
+          </div>
+          <p
+            class="font-playfair text-center text-pink-900 font-semibold text-lg"
+          >
+            First Date Kita ✨
+          </p>
+          <p class="text-center text-xs text-pink-500 mt-1">
+            Hari di mana semuanya terasa begitu sempurna.
+          </p>
+        </div>
+
+        <!-- Polaroid 2 -->
+        <div
+          class="polaroid p-4 pb-6 rounded-lg transform rotate-2 sm:translate-y-4"
+        >
+          <div class="overflow-hidden rounded mb-3 aspect-[4/5] bg-pink-100">
+            <img
+              src="n.jpeg"
+              alt="Memory 2"
+              class="w-full h-full object-cover hover:scale-110 transition duration-500"
+              onerror="
+                this.src =
+                  'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&auto=format&fit=crop&q=60'
+              "
+            />
+          </div>
+          <p
+            class="font-playfair text-center text-pink-900 font-semibold text-lg"
+          >
+            Senyum Manismu 🌸
+          </p>
+          <p class="text-center text-xs text-pink-500 mt-1">
+            Alasan utama kenapa hariku selalu ceria.
+          </p>
+        </div>
+
+        <!-- Polaroid 3 -->
+        <div class="polaroid p-4 pb-6 rounded-lg transform -rotate-2">
+          <div class="overflow-hidden rounded mb-3 aspect-[4/5] bg-pink-100">
+            <img
+              src="y.jpeg"
+              alt="Memory 3"
+              class="w-full h-full object-cover hover:scale-110 transition duration-500"
+              onerror="
+                this.src =
+                  'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=600&auto=format&fit=crop&q=60'
+              "
+            />
+          </div>
+          <p
+            class="font-playfair text-center text-pink-900 font-semibold text-lg"
+          >
+            Jalan-Jalan Berdua 💖
+          </p>
+          <p class="text-center text-xs text-pink-500 mt-1">
+            Ke mana pun asalkan sama kamu pasti seru.
+          </p>
+        </div>
+
+        <!-- Polaroid 4 -->
+        <div
+          class="polaroid p-4 pb-6 rounded-lg transform rotate-1 sm:translate-y-2"
+        >
+          <div class="overflow-hidden rounded mb-3 aspect-[4/5] bg-pink-100">
+            <img
+              src="l.jpeg"
+              alt="Memory 4"
+              class="w-full h-full object-cover hover:scale-110 transition duration-500"
+              onerror="
+                this.src =
+                  'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=600&auto=format&fit=crop&q=60'
+              "
+            />
+          </div>
+          <p
+            class="font-playfair text-center text-pink-900 font-semibold text-lg"
+          >
+            My Safe Place 🥰
+          </p>
+          <p class="text-center text-xs text-pink-500 mt-1">
+            Tempat ternyaman untuk pulang adalah pelukanmu.
+          </p>
+        </div>
+
+        <!-- Polaroid 5 -->
+        <div
+          class="polaroid p-4 pb-6 rounded-lg transform -rotate-3 sm:-translate-y-2"
+        >
+          <div class="overflow-hidden rounded mb-3 aspect-[4/5] bg-pink-100">
+            <img
+              src="aaa.jpeg"
+              alt="Memory 5"
+              class="w-full h-full object-cover hover:scale-110 transition duration-500"
+              onerror="
+                this.src =
+                  'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=600&auto=format&fit=crop&q=60'
+              "
+            />
+          </div>
+          <p
+            class="font-playfair text-center text-pink-900 font-semibold text-lg"
+          >
+            Kelucuan Kita 🤭
+          </p>
+          <p class="text-center text-xs text-pink-500 mt-1">
+            Tertawa lepas bersama hal-hal konyol.
+          </p>
+        </div>
+
+        <!-- Polaroid 6 -->
+        <div class="polaroid p-4 pb-6 rounded-lg transform rotate-2">
+          <div class="overflow-hidden rounded mb-3 aspect-[4/5] bg-pink-100">
+            <img
+              src="s.jpeg"
+              alt="Memory 6"
+              class="w-full h-full object-cover hover:scale-110 transition duration-500"
+              onerror="
+                this.src =
+                  'https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=600&auto=format&fit=crop&q=60'
+              "
+            />
+          </div>
+          <p
+            class="font-playfair text-center text-pink-900 font-semibold text-lg"
+          >
+            Forever & Always 💞
+          </p>
+          <p class="text-center text-xs text-pink-500 mt-1">
+            Berharap cerita kita tak pernah berujung.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Bucin Messages Section -->
+    <section class="relative z-10 py-16 px-4 max-w-2xl mx-auto text-center">
+      <div class="glass-card p-8 rounded-3xl shadow-xl">
+        <h3
+          class="font-playfair text-2xl md:text-3xl font-bold text-pink-900 mb-4"
+        >
+          Pesan Spesial Untukmu
+        </h3>
+        <p
+          id="bucin-quote"
+          class="text-pink-800 text-base md:text-lg italic mb-6 min-h-[80px] flex items-center justify-center"
+        >
+          "Kamu tahu gak apa bedanya kamu sama jam dinding? Kalau jam dinding
+          muter-muter muterin angka, kalau kamu muter-muter terus di pikiran aku
+          tiap detik." 😉
+        </p>
+        <button
+          onclick="changeQuote()"
+          class="px-6 py-2.5 bg-pink-500 text-white rounded-full text-sm font-medium shadow-md hover:bg-pink-600 active:scale-95 transition duration-300"
+        >
+          <i class="fa-solid fa-wand-magic-sparkles mr-2"></i> Kata-Kata Lainnya
+        </button>
+      </div>
+    </section>
+
+    <!-- QR Code Generator Section -->
+    <section
+      id="barcode-section"
+      class="relative z-10 py-16 px-4 max-w-xl mx-auto text-center"
+    >
+      <div class="glass-card p-8 rounded-3xl shadow-xl">
+        <div
+          class="inline-block p-3 mb-3 rounded-full bg-pink-100 text-pink-600"
+        >
+          <i class="fa-solid fa-qrcode text-2xl"></i>
+        </div>
+        <h3
+          class="font-playfair text-2xl md:text-3xl font-bold text-pink-900 mb-2"
+        >
+          Jadikan Barcode Web Ini!
+        </h3>
+        <p class="text-pink-700 text-sm mb-6">
+          Scan barcode di bawah ini atau screenshot untuk dibagikan / dicetak
+          sebagai kejutan romantis untuk pacar kamu!
+        </p>
+
+        <!-- QR Container -->
+        <div class="flex justify-center mb-6">
+          <div
+            id="qrcode"
+            class="p-4 bg-white rounded-2xl shadow-inner inline-block border border-pink-200"
+          ></div>
+        </div>
+
+        <div class="space-y-3">
+          <input
+            type="text"
+            id="custom-url"
+            placeholder="Masukkan URL web ini..."
+            class="w-full px-4 py-2 text-sm rounded-xl border border-pink-300 focus:outline-none focus:ring-2 focus:ring-pink-400 bg-white/80 text-pink-900 text-center"
+          />
+          <button
+            onclick="generateQR()"
+            class="w-full py-3 bg-gradient-to-r from-pink-500 to-rose-400 text-white rounded-xl font-medium shadow-md hover:shadow-lg transition duration-300"
+          >
+            <i class="fa-solid fa-rotate mr-2"></i> Perbarui Barcode
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="relative z-10 text-center py-8 text-pink-800 text-sm">
+      <p>Made with lots of ❤️ & Romantic Aesthetic for You</p>
+      <p class="text-xs text-pink-600 mt-1">&copy; 2026 - Forever Love</p>
+    </footer>
+
+    <!-- Audio Player Button (Hidden audio tag with toggle) -->
+    <button
+      id="music-toggle"
+      onclick="toggleMusic()"
+      class="fixed bottom-6 right-6 z-50 p-4 bg-pink-500 text-white rounded-full shadow-2xl hover:bg-pink-600 transition duration-300 flex items-center justify-center"
+    >
+      <i id="music-icon" class="fa-solid fa-music text-lg animate-spin"></i>
+    </button>
+    <audio id="bg-music" loop>
+      <!-- Romantic ambient gentle royalty free chimes/music stream URL or placeholder -->
+      <source
+        src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf756.mp3?filename=romantic-lofi-112191.mp3"
+        type="audio/mpeg"
+      />
+    </audio>
+
+    <!-- JavaScript Logic -->
+    <script>
+      // Floating Hearts & Petals Generator
+      function createHeart() {
+        const container = document.getElementById("hearts-container");
+        const heart = document.createElement("div");
+        heart.classList.add("petal");
+
+        const icons = ["❤️", "💖", "🌸", "✨", "💕", "🌷"];
+        heart.innerHTML = icons[Math.floor(Math.random() * icons.length)];
+
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.fontSize = Math.random() * 16 + 12 + "px";
+
+        const duration = Math.random() * 6 + 6;
+        heart.style.animationDuration = duration + "s";
+
+        container.appendChild(heart);
+
+        setTimeout(() => {
+          heart.remove();
+        }, duration * 1000);
+      }
+      setInterval(createHeart, 400);
+
+      // Typewriter Effect for Hero Text
+      const textArray = [
+        "Setiap detik bersamamu adalah keindahan yang tak tergantikan...",
+        "Terima kasih sudah hadir dan membawa warna baru di hidupku.",
+        "Kamu adalah rumah tempat di mana hatiku paling tenang.",
+      ];
+      let textIndex = 0;
+      let charIndex = 0;
+      const typedContainer = document.getElementById("typed-text");
+
+      function typeWriter() {
+        if (charIndex < textArray[textIndex].length) {
+          typedContainer.innerHTML = textArray[textIndex].substring(
+            0,
+            charIndex + 1,
+          );
+          charIndex++;
+          setTimeout(typeWriter, 50);
+        } else {
+          setTimeout(eraseText, 3000);
+        }
+      }
+
+      function eraseText() {
+        if (charIndex > 0) {
+          typedContainer.innerHTML = textArray[textIndex].substring(
+            0,
+            charIndex - 1,
+          );
+          charIndex--;
+          setTimeout(eraseText, 30);
+        } else {
+          textIndex = (textIndex + 1) % textArray.length;
+          setTimeout(typeWriter, 500);
+        }
+      }
+      setTimeout(typeWriter, 1000);
+
+      // Bucin Quotes Array
+      const quotes = [
+        '"Kamu tahu gak apa bedanya kamu sama jam dinding? Kalau jam dinding muter-muter muterin angka, kalau kamu muter-muter terus di pikiran aku tiap detik." 😉',
+        '"Gimana aku bisa ngantuk, kalau sebelum tidur aja bayangan senyum kamu udah mampir duluan di pelupuk mata?" 🥰',
+        '"Orang bilang bumi itu bulat, tapi kalau di dekat kamu rasanya duniaku cuma berpusat ke kamu seorang." 🌍💖',
+        '"Bukannya aku gak mau ngerjain tugas, tapi otak aku isinya cuma memori senyum kamu terus sih!" 🤭',
+        '"Kalau ditanya bahagia itu sederhana atau gak, jawabannya cukup dekat: melihat kamu ketawa aja udah lebih dari cukup." ✨',
+      ];
+
+      function changeQuote() {
+        const quoteEl = document.getElementById("bucin-quote");
+        quoteEl.style.opacity = 0;
+        setTimeout(() => {
+          const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+          quoteEl.innerText = randomQuote;
+          quoteEl.style.opacity = 1;
+          quoteEl.style.transition = "opacity 0.5s ease-in-out";
+        }, 250);
+      }
+
+      // QR Code Generator initialization
+      let qrcode;
+      window.onload = function () {
+        const currentUrl = window.location.href;
+        document.getElementById("custom-url").value = currentUrl;
+
+        qrcode = new QRCode(document.getElementById("qrcode"), {
+          text: currentUrl,
+          width: 180,
+          height: 180,
+          colorDark: "#590d22",
+          colorLight: "#ffffff",
+          correctLevel: QRCode.CorrectLevel.H,
+        });
+      };
+
+      function generateQR() {
+        const urlInput = document.getElementById("custom-url").value;
+        if (urlInput.trim() !== "") {
+          document.getElementById("qrcode").innerHTML = "";
+          qrcode = new QRCode(document.getElementById("qrcode"), {
+            text: urlInput,
+            width: 180,
+            height: 180,
+            colorDark: "#590d22",
+            colorLight: "#ffffff",
+            correctLevel: QRCode.CorrectLevel.H,
+          });
+        }
+      }
+
+      // Background Music Control
+      let isPlaying = false;
+      const bgMusic = document.getElementById("bg-music");
+      const musicIcon = document.getElementById("music-icon");
+
+      function toggleMusic() {
+        if (isPlaying) {
+          bgMusic.pause();
+          musicIcon.classList.remove("fa-spin");
+          musicIcon.className = "fa-solid fa-volume-xmark text-lg";
+          isPlaying = false;
+        } else {
+          bgMusic.play().catch((e) => console.log("Audio play blocked"));
+          musicIcon.className = "fa-solid fa-music text-lg animate-spin";
+          isPlaying = true;
+        }
+      }
+    </script>
+  </body>
+</html>
